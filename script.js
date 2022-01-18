@@ -1,4 +1,19 @@
 console.log('we are in reviews section');
+document.querySelector('.contact-form').addEventListener("submit",submitForm);
+function submitForm(e){
+    e.preventDefault();
+
+    let name = document.querySelector('.name').value;
+    let email = document.querySelector('.email').value;
+    let mobile = document.querySelector('.phone').value;
+    let message = document.querySelector(".message").value;
+    document.querySelector(".contact-form").reset();
+    sendEmail(name,email,mobile,message);
+}
+
+
+
+
 showReviews();
 let addBtn  = document.getElementById('addBtn');
 addBtn.addEventListener('click',function(e){
@@ -10,7 +25,7 @@ addBtn.addEventListener('click',function(e){
     else{
         notesObj = JSON.parse(notes)
     }
-    notesObj.push(addTxt.value);
+    notesObj.splice(1,0,addTxt.value);
     localStorage.setItem('notes',JSON.stringify(notesObj))
     addTxt.value = '';
     console.log(notesObj);
@@ -65,3 +80,16 @@ function deleteReview(index){
 }
 
 
+
+function sendEmail(name,email,mobile,message){
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username:"manishrana3343667@gmail.com",
+        Password:"zzepfnzafotztfdx",
+        To:`${email}`,
+        From:"manishrana3343667@gmail.com",
+        Subject:`${name} sent you a message`,
+        Body:`Name:${name} <br/> Email:${email} <br/> Mobile:${mobile} <br/> Message:${message}`,
+
+    }).then((message) => alert("mail sent successfully"))
+}

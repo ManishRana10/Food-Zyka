@@ -111,28 +111,29 @@
     </section>
     <section id="contact">
         <h1 class="h-primary center">Contact Us</h1>
-        <div id="contact-box">
-            <form action="">
+        <div id="contact-box" >
+            <form action="" class="contact-form" method="POST">
                 <div class="form-group">
                     <label for="name">Name: 
-                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                        <input class="name" type="text" id="name" name="name" placeholder="Enter your name">
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="email">Email: 
-                        <input type="email" id="email" name="name" placeholder="Enter your email">
+                        <input class="email" type="email" id="email" name="name" placeholder="Enter your email">
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="phone">Mobile Number: 
-                        <input type="phone" id="phone" name="name" placeholder="Enter your phone">
+                        <input class="phone" type="phone" id="phone" name="name" placeholder="Enter your phone">
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="name">Message: 
-                        <textarea name="message" id="message" cols="30" rows="10" ></textarea>
+                        <textarea class="message" name="message" id="message" cols="30" rows="10" ></textarea>
                     </label>
                 </div>
+                <button type="submit" class="formbtn" id="formbtn">SUBMIT</button>
             </form>
         </div>
     </section>
@@ -144,7 +145,7 @@
             <h1>Customers's Reviews</h1> 
             <div class="card" >
                <div class="card-body">
-                 <h5 class="card-title">Write you review here</h5>
+                 <h5 class="card-title" id="revHeading">Write you review here</h5>
                  <div class="mb-3">
                    
                    <textarea class="form-control" id="addTxt" rows="3" style="width:50rem;height:10rem"></textarea>
@@ -173,5 +174,6 @@
         
     </footer>
     <script src="script.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 </html>
